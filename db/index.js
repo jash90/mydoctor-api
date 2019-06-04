@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-export const sequelize = new Sequelize('myDoctor', 'admin', 'psB2r#e4', {
+const sequelize = new Sequelize('myDoctor', 'admin', 'psB2r#e4', {
     host: 'localhost',
     dialect: 'postgres',
     operatorsAliases: false,
@@ -11,3 +11,5 @@ export const sequelize = new Sequelize('myDoctor', 'admin', 'psB2r#e4', {
         idle: 10000
     }
 });
+
+module.exports = sequelize;

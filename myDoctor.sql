@@ -6,22 +6,22 @@ CREATE TABLE "users" (
 
 CREATE TABLE "doctors" (
     "id" SERIAL NOT NULL PRIMARY KEY,
-    "numberPwz" VARCHAR(64) NOT NULL UNIQUE,
+    "numberPwz" VARCHAR(7) NOT NULL UNIQUE,
     "firstname" VARCHAR(64) NOT NULL,
     "lastname" VARCHAR(64) NOT NULL,
     "specialization" VARCHAR(64) NOT NULL
 );
 
-CREATE TABLE "schedule" (
+CREATE TABLE "schedules" (
     "id" SERIAL NOT NULL PRIMARY KEY,
     "idDoctor" INTEGER NOT NULL,
     "dayOfweek" SMALLINT NOT NULL,
     "hourOpen" TIME NOT NULL,
     "hourClose" TIME NOT NULL,
-    FOREIGN KEY ("idDoctor") REFERENCES doctors("id") ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY ("doctorId") REFERENCES doctors("id") ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE TABLE "patient" (
+CREATE TABLE "pantients" (
     "id" SERIAL NOT NULL PRIMARY KEY,
     "firstname" VARCHAR(64) NOT NULL,
     "lastname" VARCHAR(64) NOT NULL,
@@ -32,12 +32,12 @@ CREATE TABLE "patient" (
     "pesel" VARCHAR(11) NOT NULL UNIQUE
 );
 
-CREATE TABLE "visit" (
+CREATE TABLE "visits" (
     "id" SERIAL NOT NULL PRIMARY KEY,
-    "idDoctor" INTEGER NOT NULL,
-    "idPatient" INTEGER NOT NULL,
+    "doctorId" INTEGER NOT NULL,
+    "pantientId" INTEGER NOT NULL,
     "date" TIMESTAMP NOT NULL,
     "description" TEXT NULL,
-    FOREIGN KEY ("idPatient") REFERENCES patient("id") ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY ("idDoctor") REFERENCES doctors("id") ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY ("pantientId") REFERENCES patient("id") ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY ("doctorId") REFERENCES doctors("id") ON DELETE CASCADE ON UPDATE CASCADE
 );
