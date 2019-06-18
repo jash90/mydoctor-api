@@ -1,6 +1,5 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../db/index');
-const Doctor = require('./doctor');
 const Visit = require('./visit');
 class Pantient extends Sequelize.Model { }
 Pantient.init(
@@ -48,10 +47,8 @@ Pantient.init(
         },
     }, { timestamps: false, sequelize, modelName: 'pantient' });
 
-Pantient.belongsToMany(Doctor, {
-    onDelete: 'CASCADE',
-    through: Visit,
-    foreignKey: 'idPantient',
-});
+Pantient.associate = (models) => {
+    Pantient.belongsToMany(models.Visit, { as: 'Visit', through: models.Visit, foreignKey: 'idPantient' });
+}
 
 module.exports = Pantient;

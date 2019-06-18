@@ -14,8 +14,8 @@ Doctor.init(
             type: Sequelize.STRING,
             allowNull: false,
             unique: true,
-            validate:{
-                len:[7]
+            validate: {
+                len: [7]
             }
         },
         firstname: {
@@ -35,10 +35,6 @@ Doctor.init(
         }
     }, { timestamps: false, sequelize, modelName: 'doctor' });
 
-Doctor.belongsToMany(Pantient, {
-    onDelete: 'CASCADE',
-    through: Visit,
-    foreignKey: 'idDoctor',
-});
+Doctor.belongsToMany(Pantient, { as: 'Visit', through: Visit, foreignKey: 'id' });
 
 module.exports = Doctor;

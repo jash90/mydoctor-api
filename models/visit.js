@@ -1,5 +1,7 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../db/index');
+const Pantient = require('./pantient');
+const Doctor = require('./doctor');
 class Visit extends Sequelize.Model { }
 Visit.init(
     {
@@ -11,12 +13,22 @@ Visit.init(
         idDoctor: {
             type: Sequelize.INTEGER,
             allowNull: false,
-            validate: { notEmpty: true },
+            references: {
+                model: 'doctors',
+                key: 'idDoctor'
+            },
+            onDelete: 'cascade',
+            onUpdate: 'cascade',
         },
         idPantient: {
             type: Sequelize.INTEGER,
             allowNull: false,
-            validate: { notEmpty: true },
+            references: {
+                model: 'pantients',
+                key: 'idPantient'
+            },
+            onDelete: 'cascade',
+            onUpdate: 'cascade',
         },
         date: {
             type: Sequelize.DATE,
@@ -30,5 +42,8 @@ Visit.init(
         },
 
     }, { timestamps: false, sequelize, modelName: 'visit' });
+
+Visit.belongsTo(Doctor, { foreignKey: 'idDoctor', targetKey: 'id', as: 'Doctor' });
+Visit.belongsTo(Pantient, { foreignKey: 'idPantient', targetKey: 'id', as: 'Pantient' });
 
 module.exports = Visit;

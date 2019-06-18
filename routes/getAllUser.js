@@ -4,10 +4,9 @@ const Visit = require("../models/visit");
 const Doctor = require("../models/doctor");
 const pantient = require("../models/pantient");
 router.get('/', function (req, res, next) {
-    Visit.findAll({
- 
+    Doctor.findAll({
     }).then(users => {
-        res.json(users);
+        res.json(users[0]);
     })
 });
 
