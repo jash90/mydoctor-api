@@ -1,7 +1,5 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../db/index');
-const Pantient = require('./pantient');
-const Visit = require('./visit');
 class Doctor extends Sequelize.Model { }
 Doctor.init(
     {

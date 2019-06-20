@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
-const { Doctor } = require("../../models");
+const { Visit } = require("../../models");
 router.get('/', function (req, res, next) {
-    Doctor.findAll({
+    Visit.findAll({
     }).then(items => {
         res.json(items);
     })

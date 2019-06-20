@@ -1,6 +1,5 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../db/index');
-const Visit = require('./visit');
 class Pantient extends Sequelize.Model { }
 Pantient.init(
     {
