@@ -1,2 +1,2 @@
-const doctors = require('./getAll');
-module.exports = { doctors };
+const getAll = require('./getAll');
+module.exports = { getAll };

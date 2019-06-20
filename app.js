@@ -3,12 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const index = require('./routes/index');
-const { doctors } = require('./routes/doctor');
-const { visits } = require('./routes/visit');
-const { schedules } = require('./routes/schedule');
-const { pantients } = require('./routes/pantient');
-//const {  } = require('./routes/auth');
+const index = require('./routes/home');
+const { Doctor, Visit, Pantient, Schedule } = require('./routes');
 
 var app = express();
 
@@ -23,10 +19,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/doctors', doctors);
-app.use('/visits', visits);
-app.use('/schedules', schedules);
-app.use('/pantients', pantients);
+app.use('/doctors', Doctor.getAll);
+app.use('/visits', Visit.getAll);
+app.use('/schedules', Schedule.getAll);
+app.use('/pantients', Pantient.getAll);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

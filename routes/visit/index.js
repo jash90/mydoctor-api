@@ -1,2 +1,2 @@
-const visits = require('./getAll');
-module.exports = { visits };
+const getAll = require('./getAll');
+module.exports = { getAll };

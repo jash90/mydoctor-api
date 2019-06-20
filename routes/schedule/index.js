@@ -1,2 +1,2 @@
-const schedules = require('./getAll');
-module.exports = { schedules };
+const getAll = require('./getAll');
+module.exports = { getAll };
