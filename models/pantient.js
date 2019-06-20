@@ -47,8 +47,4 @@ Pantient.init(
         },
     }, { timestamps: false, sequelize, modelName: 'pantient' });
 
-Pantient.associate = (models) => {
-    Pantient.belongsToMany(models.Visit, { as: 'Visit', through: models.Visit, foreignKey: 'idPantient' });
-}
-
 module.exports = Pantient;

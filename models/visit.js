@@ -42,8 +42,4 @@ Visit.init(
         },
 
     }, { timestamps: false, sequelize, modelName: 'visit' });
-
-Visit.belongsTo(Doctor, { foreignKey: 'idDoctor', targetKey: 'id', as: 'Doctor' });
-Visit.belongsTo(Pantient, { foreignKey: 'idPantient', targetKey: 'id', as: 'Pantient' });
-
 module.exports = Visit;

@@ -35,6 +35,4 @@ Doctor.init(
         }
     }, { timestamps: false, sequelize, modelName: 'doctor' });
 
-Doctor.belongsToMany(Pantient, { as: 'Visit', through: Visit, foreignKey: 'id' });
-
 module.exports = Doctor;
