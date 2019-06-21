@@ -8,22 +8,22 @@ Visit.init(
             primaryKey: true,
             autoIncrement: true
         },
-        idDoctor: {
+        doctorId: {
             type: Sequelize.INTEGER,
             allowNull: false,
             references: {
                 model: 'doctors',
-                key: 'idDoctor'
+                key: 'id'
             },
             onDelete: 'cascade',
             onUpdate: 'cascade',
         },
-        idPantient: {
+        pantientId: {
             type: Sequelize.INTEGER,
             allowNull: false,
             references: {
                 model: 'pantients',
-                key: 'idPantient'
+                key: 'id'
             },
             onDelete: 'cascade',
             onUpdate: 'cascade',

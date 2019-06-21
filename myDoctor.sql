@@ -38,6 +38,6 @@ CREATE TABLE "visits" (
     "pantientId" INTEGER NOT NULL,
     "date" TIMESTAMP NOT NULL,
     "description" TEXT NULL,
-    FOREIGN KEY ("pantientId") REFERENCES patient("id") ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY ("pantientId") REFERENCES pantients("id") ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY ("doctorId") REFERENCES doctors("id") ON DELETE CASCADE ON UPDATE CASCADE
 );
