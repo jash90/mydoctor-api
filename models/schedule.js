@@ -21,11 +21,7 @@ Schedule.init(
         dayOfWeek: {
             type: Sequelize.INTEGER,
             allowNull: false,
-            defaultValue: 0,
-            validate: {
-                max: 0,
-                min: 6,
-            },
+            validate: { min: 0, max: 6 }
         },
         hourOpen: {
             type: Sequelize.TIME,
