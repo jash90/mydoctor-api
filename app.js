@@ -20,10 +20,26 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+
+//doctor
 app.use('/doctors', Doctor.getAll);
+app.use('/doctor', Doctor.get);
+app.use('/remove', Doctor.remove);
+
+//visit
 app.use('/visits', Visit.getAll);
+app.use('/visit', Visit.get);
+app.use('/visit/remove', Visit.remove);
+
+//schedule
 app.use('/schedules', Schedule.getAll);
+app.use('/schedule', Schedule.get);
+app.use('/schedule/remove', Schedule.remove);
+
+//pantients
 app.use('/pantients', Pantient.getAll);
+app.use('/pantient', Pantient.get);
+app.use('/pantient/remove', Pantient.remove);
 
 //faker
 app.use('/generatePantient', generatePantient);

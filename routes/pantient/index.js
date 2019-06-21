@@ -1,2 +1,4 @@
 const getAll = require('./getAll');
-module.exports = { getAll };
+const get = require('./get');
+const remove = require('./remove');
+module.exports = { getAll, get, remove };
