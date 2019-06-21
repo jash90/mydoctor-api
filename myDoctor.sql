@@ -15,7 +15,7 @@ CREATE TABLE "doctors" (
 CREATE TABLE "schedules" (
     "id" SERIAL NOT NULL PRIMARY KEY,
     "idDoctor" INTEGER NOT NULL,
-    "dayOfweek" SMALLINT NOT NULL,
+    "dayOfWeek" SMALLINT NOT NULL,
     "hourOpen" TIME NOT NULL,
     "hourClose" TIME NOT NULL,
     FOREIGN KEY ("doctorId") REFERENCES doctors("id") ON DELETE CASCADE ON UPDATE CASCADE

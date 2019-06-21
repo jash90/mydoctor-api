@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const index = require('./routes/home');
 const { Doctor, Visit, Pantient, Schedule } = require('./routes');
-const { generateDoctor, generatePantient, generateSchedule, generateVisit } = require('./faker');
+const { generateDoctor, generatePantient, generateSchedule } = require('./faker');
 
 var app = express();
 
@@ -28,7 +28,7 @@ app.use('/pantients', Pantient.getAll);
 //faker
 app.use('/generatePantient', generatePantient);
 app.use('/generateDoctor', generateDoctor);
-app.use('/generateVisit', generateVisit);
+//app.use('/generateVisit', generateVisit);
 app.use('/generateSchedule', generateSchedule);
 
 // catch 404 and forward to error handler

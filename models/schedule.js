@@ -18,7 +18,7 @@ Schedule.init(
                 key: 'id',
             }
         },
-        dayOfweek: {
+        dayOfWeek: {
             type: Sequelize.INTEGER,
             allowNull: false,
             defaultValue: 0,
