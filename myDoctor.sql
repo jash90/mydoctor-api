@@ -14,7 +14,7 @@ CREATE TABLE "doctors" (
 
 CREATE TABLE "schedules" (
     "id" SERIAL NOT NULL PRIMARY KEY,
-    "idDoctor" INTEGER NOT NULL,
+    "doctorId" INTEGER NOT NULL,
     "dayOfWeek" SMALLINT NOT NULL,
     "hourOpen" TIME NOT NULL,
     "hourClose" TIME NOT NULL,
