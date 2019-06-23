@@ -4,7 +4,8 @@ const { Schedule } = require("../../models");
 router.get('/:id', function (req, res, next) {
     Schedule.findAll({
         limit: 100,
-        offset: req.params.id * 100
+        offset: req.params.id * 100,
+        order: ['id']
     }).then(items => {
         res.json(items);
     })
@@ -12,6 +13,7 @@ router.get('/:id', function (req, res, next) {
 router.get('/', function (req, res, next) {
     Schedule.findAll({
         limit: 100,
+        order: ['id']
     }).then(items => {
         res.json(items);
     })

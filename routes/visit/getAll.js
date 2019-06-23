@@ -14,7 +14,7 @@ router.get('/:id', async (req, res, next) => {
     Visit.findAndCountAll({
         limit: 100,
         offset: req.params.id * 100,
-        order: [['date', 'ASC']]
+        order: [['date', 'ASC'],['id']]
     }).then(items => {
         res.json({
             count: items.count, rows: items.rows.map(item => {
@@ -39,7 +39,7 @@ router.get('/', async (req, res, next) => {
     });
     Visit.findAndCountAll({
         limit: 100,
-        order:[['date','ASC']]
+        order: [['date', 'ASC'], ['id']]
     }).then(items => {
         res.json({count: items.count, rows: items.rows.map(item => {
             let doctor = _.find(doctors, { 'id': item.doctorId });

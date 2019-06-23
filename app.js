@@ -5,7 +5,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const index = require('./routes/home');
-const { Doctor, Visit, Pantient, Schedule } = require('./routes');
+const { Doctor, Visit, Pantient, Schedule, Auth } = require('./routes');
 const { generateDoctor, generatePantient, generateSchedule, generateVisit } = require('./faker');
 
 var app = express();
@@ -26,7 +26,9 @@ app.use('/', index);
 //doctor
 app.use('/doctors', Doctor.getAll);
 app.use('/doctor', Doctor.get);
-app.use('/remove', Doctor.remove);
+app.use('/doctor/remove', Doctor.remove);
+app.use('/doctor/add', Doctor.add);
+app.use('/doctor/edit', Doctor.edit);
 
 //visit
 app.use('/visits', Visit.getAll);
@@ -42,6 +44,9 @@ app.use('/schedule/remove', Schedule.remove);
 app.use('/pantients', Pantient.getAll);
 app.use('/pantient', Pantient.get);
 app.use('/pantient/remove', Pantient.remove);
+
+//auth
+app.use('/login', Auth.login);
 
 //faker
 app.use('/generatePantient', generatePantient);
