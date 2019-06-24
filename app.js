@@ -29,6 +29,7 @@ app.use('/doctor', Doctor.get);
 app.use('/doctor/remove', Doctor.remove);
 app.use('/doctor/add', Doctor.add);
 app.use('/doctor/edit', Doctor.edit);
+app.use('/alldoctors', Doctor.getAllDoctors);
 
 //visit
 app.use('/visits', Visit.getAll);
@@ -41,6 +42,9 @@ app.use('/visit/remove', Visit.remove);
 app.use('/schedules', Schedule.getAll);
 app.use('/schedule', Schedule.get);
 app.use('/schedule/remove', Schedule.remove);
+app.use('/schedule/search', Schedule.search);
+app.use('/schedule/add', Schedule.add);
+app.use('/schedule/edit', Schedule.edit);
 
 //pantients
 app.use('/pantients', Pantient.getAll);

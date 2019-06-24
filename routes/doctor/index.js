@@ -3,4 +3,5 @@ const get = require('./get');
 const remove = require('./remove');
 const add = require('./add');
 const edit = require('./edit');
-module.exports = { getAll, get, remove, add, edit };
+const getAllDoctors = require('./getAllDoctors');
+module.exports = { getAll, get, remove, add, edit, getAllDoctors };
