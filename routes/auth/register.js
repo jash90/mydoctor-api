@@ -3,10 +3,8 @@ var router = express.Router();
 const { User } = require("../../models");
 router.post('/', function (req, res, next) {
     User.create({
-        where: {
-            email: req.body.email,
-            password: req.body.password
-        }
+        email: req.body.email,
+        password: req.body.password
     }).then(item => {
         res.json({ item });
     }).catch(error => {

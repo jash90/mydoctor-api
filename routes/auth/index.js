@@ -1,2 +1,3 @@
 const login = require('./login');
-module.exports = { login };
+const register = require('./register');
+module.exports = { login, register };

@@ -58,6 +58,7 @@ app.use('/allpantients', Pantient.getAllPantients);
 
 //auth
 app.use('/login', Auth.login);
+app.use('/register', Auth.register);
 
 //faker
 app.use('/generatePantient', generatePantient);
