@@ -20,8 +20,8 @@ router.get('/:id', async (req, res, next) => {
             count: items.count, rows: items.rows.map(item => {
                 let doctor = _.find(doctors, { 'id': item.doctorId });
                 let pantient = _.find(pantients, { 'id': item.pantientId });
-                doctor = `${doctor.lastname} ${doctor.firstname}`;
-                pantient = `${pantient.lastname} ${pantient.firstname}`;
+                doctor = `${doctor.firstname} ${doctor.lastname}`;
+                pantient = `${pantient.firstname} ${pantient.lastname}`;
                 const { id, doctorId, pantientId, date, description } = item;
                 return { id, doctorId, pantientId, date, description, doctor, pantient };
             })

@@ -35,6 +35,8 @@ app.use('/alldoctors', Doctor.getAllDoctors);
 app.use('/visits', Visit.getAll);
 app.use('/visit', Visit.get);
 app.use('/visit/remove', Visit.remove);
+app.use('/visit/search',Visit.search);
+app.use('/visit/day', Visit.getDay);
 // app.use('/visit/add', Visit.add);
 // app.use('/visit/edit', Visit.edit);
 
@@ -52,6 +54,7 @@ app.use('/pantient', Pantient.get);
 app.use('/pantient/remove', Pantient.remove);
 app.use('/pantient/add', Pantient.add);
 app.use('/pantient/edit', Pantient.edit);
+app.use('/allpantients', Pantient.getAllPantients);
 
 //auth
 app.use('/login', Auth.login);

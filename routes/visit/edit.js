@@ -1,13 +1,15 @@
 var express = require('express');
 var router = express.Router();
-const { Schedule } = require("../../models");
+const { Visit } = require("../../models");
 router.post('/', function (req, res, next) {
-    Schedule.create({
+    Visit.update({
         doctorId: req.body.doctorId,
-        dayOfWeek: req.body.dayOfWeek,
-        hourOpen: req.body.hourOpen,
-        hourClose: req.body.hourClose
-    }).then(item => {
+        pantientId: req.body.pantientId,
+        date: req.body.date,
+        description: req.body.description
+    },
+        { where: { id: req.body.id } }
+    ).then(item => {
         res.json({ item });
     }).catch(error => {
         res.json({ error });
