@@ -8,9 +8,9 @@ router.post('/', function (req, res, next) {
             password: req.body.password
         }
     }).then(item => {
-        res.json(item);
-    }).catch(error=>{
-        res.json(error);
+        res.json({ item });
+    }).catch(error => {
+        res.json({ error });
     })
 });
 

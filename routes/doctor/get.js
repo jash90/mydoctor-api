@@ -3,11 +3,13 @@ var router = express.Router();
 const { Doctor } = require("../../models");
 router.get('/:id', function (req, res, next) {
     Doctor.findOne({
-        where:{
+        where: {
             id: req.params.id
         }
     }).then(item => {
-        res.json(item);
+        res.json({ item });
+    }).catch(error => {
+        res.json({ error });
     })
 });
 

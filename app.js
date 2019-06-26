@@ -37,8 +37,8 @@ app.use('/visit', Visit.get);
 app.use('/visit/remove', Visit.remove);
 app.use('/visit/search',Visit.search);
 app.use('/visit/day', Visit.getDay);
-// app.use('/visit/add', Visit.add);
-// app.use('/visit/edit', Visit.edit);
+app.use('/visit/add', Visit.add);
+app.use('/visit/edit', Visit.edit);
 
 //schedule
 app.use('/schedules', Schedule.getAll);

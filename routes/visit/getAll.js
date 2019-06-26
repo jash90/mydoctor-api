@@ -26,6 +26,8 @@ router.get('/:id', async (req, res, next) => {
                 return { id, doctorId, pantientId, date, description, doctor, pantient };
             })
         });
+    }).catch(error => {
+        res.json({ error });
     })
 });
 router.get('/', async (req, res, next) => {
@@ -49,6 +51,8 @@ router.get('/', async (req, res, next) => {
             const { id, doctorId, pantientId, date, description } = item;
             return { id, doctorId, pantientId, date, description, doctor, pantient };
         })});
+    }).catch(error => {
+        res.json({ error });
     })
 });
 

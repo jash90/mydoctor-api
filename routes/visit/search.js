@@ -13,7 +13,9 @@ router.post('/', function (req, res, next) {
             date: { [Op.between]: [now, next10] },
         }
     }).then(item => {
-        res.json(item);
+        res.json({ item });
+    }).catch(error => {
+        res.json({ error });
     })
 });
 

@@ -41,7 +41,7 @@ router.get('/:doctorId', async (req, res, next) => {
         res.json(freeDay)
 
     } catch (error) {
-        console.log(error);
+        res.json({error});
     }
 
 

@@ -6,9 +6,11 @@ router.get('/:id', function (req, res, next) {
         where: {
             doctorId: req.params.id
         },
-        order:['dayOfWeek']
+        order: ['dayOfWeek']
     }).then(item => {
-        res.json(item);
+        res.json({ item });
+    }).catch(error => {
+        res.json({ error });
     })
 });
 

@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
-const { Doctor } = require("../../models");
+const { User } = require("../../models");
 router.post('/', function (req, res, next) {
-    Doctor.create({
-        numberPwz: req.body.numberPwz,
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        specialization: req.body.specialization
+    User.create({
+        where: {
+            email: req.body.email,
+            password: req.body.password
+        }
     }).then(item => {
         res.json({ item });
     }).catch(error => {

@@ -7,7 +7,9 @@ router.get('/:id', function (req, res, next) {
         offset: req.params.id * 100,
         order: ['id']
     }).then(items => {
-        res.json(items);
+        res.json({ items });
+    }).catch(error => {
+        res.json({ error });
     })
 });
 router.get('/', function (req, res, next) {
@@ -15,7 +17,9 @@ router.get('/', function (req, res, next) {
         limit: 100,
         order: ['id']
     }).then(items => {
-        res.json(items);
+        res.json({ items });
+    }).catch(error => {
+        res.json({ error });
     })
 });
 module.exports = router;
