@@ -61,10 +61,10 @@ app.use('/login', Auth.login);
 app.use('/register', Auth.register);
 
 //faker
-app.use('/generatePantient', generatePantient);
-app.use('/generateDoctor', generateDoctor);
-app.use('/generateVisit', generateVisit);
-app.use('/generateSchedule', generateSchedule);
+// app.use('/generatePantient', generatePantient);
+// app.use('/generateDoctor', generateDoctor);
+// app.use('/generateVisit', generateVisit);
+// app.use('/generateSchedule', generateSchedule);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
