@@ -17,7 +17,7 @@ router.get('/:doctorId', async (req, res, next) => {
         let now = moment().set({ 'minute': 0, 'second': 0, 'millisecond': 0 });
         let freeDay = [];
         for (let index = 0; index < 14; index++) {
-            const schedule = schedules.find((schedule) => schedule.dayOfWeek === now.weekday());
+            const schedule = schedules.find((schedule) => (schedule.dayOfWeek + 1) === now.weekday());
             let morning = now;
             if (schedule) {
                 const hourOpen = Number(schedule.hourOpen.replace(":00:00", ""));
@@ -41,7 +41,7 @@ router.get('/:doctorId', async (req, res, next) => {
         res.json(freeDay)
 
     } catch (error) {
-        res.json({error});
+        res.json({ error });
     }
 
 
